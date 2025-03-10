@@ -32,26 +32,29 @@
 
     
 
+
+
+
+
     {
         "name": "stone pickaxe",
         "description": "regular stone pickaxe",
         "itemsNeeded": ["stick", "stick", "stone", "stone", "stone"],
-        "rarity": "common"
+        "rarity": "uncommon"
     }, 
 
     {
         "name": "stone sword",
         "description": "regular stone sword",
         "itemsNeeded": ["stick", "stone", "stone"],
-        "rarity": "common"
+        "rarity": "uncommon"
     },
-
 
 	{
 		"name": "stone axe",
 		"description": "regular stone axe",
 		"itemsNeeded": ["stick", "stick", "rock", "rock", "rock"],
-		"rarity": "common"
+		"rarity": "uncommon"
 	}, 
 
 	{
@@ -66,6 +69,6 @@
 		"description": "Magical???? wand",
 		"itemsNeeded": ["stick", "stick", "magic stone"],
 		"rarity": "rare"
-	}, 
+	}
 
 ]
