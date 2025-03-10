@@ -1,7 +1,4 @@
 
-
-
-
 from itmes.items import ItemManager
 
 
