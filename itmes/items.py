@@ -54,6 +54,7 @@ class ItemManager:
 # Example usage
 if __name__ == "__main__":
     item_manager = ItemManager('items.json')
+    print(item_manager)  # Retrieve item by name
     print(item_manager.get_item("stick").get_item_items_needed())  # Retrieve item by name
     print(item_manager.get_item("stone pickaxe"))  # Retrieve another item by name
 

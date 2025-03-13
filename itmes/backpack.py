@@ -46,10 +46,11 @@ class Backpack:
     def remove_item(self, item_name, count):
         for backpack_item in self.items:
             if backpack_item['name'] == item_name:
+                print(backpack_item['name'])
                 if backpack_item['count'] > count:
                     backpack_item['count'] -= count
                 elif backpack_item['count'] == count:
-                    self.items.remove(backpack_item)
+                    backpack_item['count'] == 0
                 else:
                     raise ValueError("Not enough items to remove")
                 return
@@ -81,7 +82,7 @@ class Backpack:
     def upgrade_backpack(self):
         if (self.capacity == 5):
             if (self.get_item_count("stick") >= 5):
-                x = input("backpack can be upgraded to a capacity of 10. \n Upgrade?(y/n)   ")
+                x = input("backpack can be upgraded to a capacity of 6. \n Upgrade?(y/n)   ")
                 if (x.lower == "y"):
                     self.capacity = 6
                     self.remove_item("stick", 5)
@@ -119,14 +120,14 @@ class Backpack:
 
     def toTable(self):
         # use pretty tables??? -pip install prettytable 
-        print("Item \t| Count \n----------------")
+        print("Item \t\t| Count \n----------------")
         for item in self.items:
-            print(item)
+            # print(item)
             if ((item == None)):
                 break
 
             else :
-                print(f"{item['name']} \t| {item['count']}")
+                print(f"{item['name']} \t\t| {item['count']}")
            
         
     

@@ -21,16 +21,12 @@
         "rarity": "common"
     }, 
 
-
     {
         "name": "rock",
         "description": "regular rock",
         "itemsNeeded": ["found wandering the lands"],
         "rarity": "common"
     }, 
-
-
-    
 
 
 
