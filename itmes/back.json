@@ -1,24 +1,9 @@
-[
-    {
-        "name": "stick",
-        "count": 2
-    },
-
-    {
-        "name": "rock",
-        "count": 2
-
-    },
-
-    {
-        "name": "magic rock",
-        "count": 2
-    }
-
-
-
-
-
-
-
-]
+{
+    "items": [
+        {
+            "name": "stick",
+            "count": 25
+        }
+    ],
+    "capacity": 5
+}

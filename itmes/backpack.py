@@ -28,29 +28,38 @@ class Backpack:
     def load_items(self):
         try:
             with open(self.file_path, 'r') as file:
-                self.items = json.load(file)
+                jsn = json.load(file)
+                self.items = jsn.get('items')
+                self.capacity = jsn.get('capacity')
         except FileNotFoundError:
             self.items = []
 
     def add_item(self, item, count):
+            
+            item_added = False
             for backpack_item in self.items:
+                print("looking for item")
                 if backpack_item['name'] == item:
                     backpack_item['count'] += count
+                    item_added = True
                     return
-                else:
-                    self.items.append({
-                        'name': item,
-                        'count': count
-                    })
+            if not item_added:
+                print("adding item")
+                self.items.append({
+                    'name': item,
+                    'count': count
+                })
+                    
 
     def remove_item(self, item_name, count):
         for backpack_item in self.items:
             if backpack_item['name'] == item_name:
+                print(backpack_item)
                 print(backpack_item['name'])
                 if backpack_item['count'] > count:
                     backpack_item['count'] -= count
                 elif backpack_item['count'] == count:
-                    backpack_item['count'] == 0
+                    backpack_item['count'] = 0
                 else:
                     raise ValueError("Not enough items to remove")
                 return
@@ -69,21 +78,24 @@ class Backpack:
         except:
             return "Item not found"
        
-
-
-        
-    
     def get_item_count(self, name):
-        for item in self.items:
-            if item['name'] == name:
-                return item['count']
-        raise ValueError(f"Item with name '{name}' not found")
+        
+        try:
+            print("getting item count")
+            for item in self.items:
+                if item['name'] == name:
+                    return item['count']
+        except:
+            return 0
+        
 
     def upgrade_backpack(self):
         if (self.capacity == 5):
             if (self.get_item_count("stick") >= 5):
                 x = input("backpack can be upgraded to a capacity of 6. \n Upgrade?(y/n)   ")
-                if (x.lower == "y"):
+                print(x)
+                if (x.lower() == ("y")):
+                    print("Upgrading backpack")
                     self.capacity = 6
                     self.remove_item("stick", 5)
                     print("Backpack upgraded to a capacity of 6 \n")
@@ -93,7 +105,7 @@ class Backpack:
         elif (self.capacity == 6):
             if (self.get_item_count("rock") >= 5):
                 x = input("backpack can be upgraded to a capacity of 10. \n Upgrade?(y/n)   ")
-                if (x.lower == "y"):
+                if (x.lower() == "y"):
                     self.capacity = 7
                     self.remove_item("rock", 5)
                     print("Backpack upgraded to a capacity of 7 \n")
@@ -101,13 +113,24 @@ class Backpack:
                 print("Not enough rocks to upgrade backpack. For this level you need 5 rocks \n")
 
 
-    # def __del__(self):
-        # with open(self.file_path, 'w') as file:
-        #     json.dump(self.items, file, indent=4)
+    def save_backpack(self):
+        with open(self.file_path, 'w') as file:
+            json.dump({
+                'items': self.items,
+                'capacity': self.capacity
+            }, file, indent=4)
+
+
+    def reset_backpack(self):
+        self.items = []
+        self.capacity = 5
+        self.save_backpack()
 
 
 
-    
+
+
+    # print methods
     def __repr__(self):
 
         return json.dumps(self.items, indent=4)
@@ -128,7 +151,9 @@ class Backpack:
 
             else :
                 print(f"{item['name']} \t\t| {item['count']}")
-           
+
+
+
         
     
 
@@ -140,8 +165,13 @@ if __name__ == "__main__":
     print(bp.toString())
     bp.upgrade_backpack()
     bp.add_item("stick", 5)
-    print(bp.toTable())
+    # print(bp.toTable())
+    print(bp.toString())
     bp.upgrade_backpack()
-    print(bp.toTable())
+    bp.save_backpack()
+    print(bp.toString())
+    # bp.reset_backpack()
+
+    
 
 

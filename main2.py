@@ -100,6 +100,7 @@ def intro_screen():
         if choice == "1":
             print("\n[Exploring the world...]\n")
             # Call your explore function here
+            fighting()
         elif choice == "2":
             print("\n[Opening your backpack...]\n")
             # Call backpack function
