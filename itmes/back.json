@@ -1,23 +1,21 @@
 [
     {
         "name": "stick",
-        "count": 2,
-        "description": "regular back"
+        "count": 2
 
     },
 
 
     {
         "name": "rock",
-        "count": 2,
-        "description": "regular back"
+        "count": 2
+ 
 
     },
 
     {
-        "name": "stick",
-        "count": 2,
-        "description": "regular back"
+        "name": "magic rock",
+        "count": 2
 
     }
 
