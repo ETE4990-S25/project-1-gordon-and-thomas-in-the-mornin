@@ -21,15 +21,22 @@ Run the game by running the main method in the Main class. The game will start a
 - The backpack is used to store the items that you have collected
   - A limit of 5 items in the beginning
   - Can be upgraded to hold more items
+- Can be converted to a JSON file to save the items that you have collected
+- 
 
 ### Items
 - Items are stored in a JSON file
 - Items have a name, description, a list of materials needed to craft the item, and a ratity
   - Rarity is used to determine what tier the item is
-  - common can be found in the lands
-  - uncommon can be crafted from common items
-  - rare can be crafted from uncommon or common items 
-  - And so on
+    - common can be found in the lands
+    - uncommon can be crafted from common items
+    - rare can be crafted from uncommon or common items 
+    - And so on
+- Each item has a get method to call 
+
+### Saving 
+- The game saves the items that you have collected in a JSON file
+- The name of the object is impora
 
 ## Team Members
 - [Gordon](https://github.com/Gizmofire)
