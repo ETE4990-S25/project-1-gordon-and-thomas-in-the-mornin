@@ -117,7 +117,82 @@ def intro_screen():
 
 intro_screen() 
 
+#dice roll for fighting
+def dice_Roll ():
+    sum = 0
+    for x in range (5):
+        sum = sum + random.randint(1,6)
+    return sum
 
+#uses dice_roll as a fighting mechanica agaisnt enenmy enemy needs to be bested by 1/2,2/3 etc with higher level enemies
+def fighting():
+    while True:
+
+
+        wins = []
+
+        losses = []
+
+        games_Played = []
+
+        computer_Guess = dice_Roll()
+
+        print (computer_Guess)
+
+        user_Guess = int(input ("Enter a guess for the sum of 5 dice if youre within 2 numbers you win"))
+
+        print (computer_Guess)
+
+        #if computer_Guess - 2 <= user_Guess <=  computer_Guess + 2:
+            #print(f" You won! youre guess was {user_Guess} the total sum was {computer_Guess}")
+        if computer_Guess == user_Guess:
+            print (" wow lucky guess you got it exactly right!")
+            wins.append(1)
+            games_Played.append(1)
+
+        elif computer_Guess - 2 <= user_Guess <=  computer_Guess + 2:
+            print(f" You won! youre guess was {user_Guess} the total sum was {computer_Guess}")
+            wins.append(1)
+            games_Played.append(1)
+
+        else:
+            print(" you lost loser :p ")
+            losses.append(1)
+
+
+#main class for enemies name,level, and wins to beat should be based on distance from home. so the further you are from home the more wins you need to beat the enemy
+class enemy:
+    def __init__(self, name, level,wins_to_beat):
+        self.name = name
+        self.level = level
+        self.wins_to_beat = wins_to_beat
+        
+
+    def __str__(self):
+        return f"{self.name} (Level {self.level})"
+
+class low_level_enemy(enemy):
+
+    enemy_names = ["Cave Rat", "Wolf", "Wild Boar", "Angry Giant Sloth"]
+    def __init__(self,distance):
+        self.name = random.choice(self.enemy_names)
+        self.level = 1
+        self.wins_to_beat = 1
+    
+class mid_level_enemy(enemy):
+    enemy_names = ["Hyena", "Raptor", "Rival Caveman", "Sabertooth Tiger"]
+    def __init__(self,distance):
+        self.name = random.choice(self.enemy_names)
+        self.level = 1
+        self.wins_to_beat = 3
+    
+
+class high_level_enemy(enemy):
+    enemy_names = ["Wooly mammoth", "Cave Bear", "Giant Eagle", "Angry Cave Rat"]
+    def __init__(self,distance):
+        self.name = random.choice(self.enemy_names)
+        self.level = 1
+        self.wins_to_beat = 5
 
 
     
