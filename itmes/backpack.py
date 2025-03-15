@@ -81,7 +81,7 @@ class Backpack:
     def get_item_count(self, name):
         
         try:
-            print("getting item count")
+            # print("getting item count")
             for item in self.items:
                 if item['name'] == name:
                     return item['count']
@@ -163,13 +163,16 @@ class Backpack:
 if __name__ == "__main__":
     bp = Backpack("back.json")
     print(bp.toString())
-    bp.upgrade_backpack()
-    bp.add_item("stick", 5)
+
+    print(bp.get_item_count("stick"))
+    
+    # bp.upgrade_backpack()
+    # bp.add_item("stick", 5)
     # print(bp.toTable())
-    print(bp.toString())
-    bp.upgrade_backpack()
-    bp.save_backpack()
-    print(bp.toString())
+    # print(bp.toString())
+    # bp.upgrade_backpack()
+    # bp.save_backpack()
+    # print(bp.toString())
     # bp.reset_backpack()
 
     

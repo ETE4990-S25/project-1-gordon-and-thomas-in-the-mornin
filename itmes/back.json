@@ -3,6 +3,11 @@
         {
             "name": "stick",
             "count": 25
+        },
+
+        {
+            "name": "magic stone",
+            "count": 2
         }
     ],
     "capacity": 5

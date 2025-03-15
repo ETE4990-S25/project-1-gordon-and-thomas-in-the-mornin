@@ -30,6 +30,14 @@
 
 
     {
+        "name": "large stick",
+        "description": "a large stick",
+        "itemsNeeded": ["stick", "stick","stick", "stick" ],
+        "rarity": "uncommon"
+    }, 
+
+
+    {
         "name": "stone pickaxe",
         "description": "regular stone pickaxe",
         "itemsNeeded": ["stick", "stick", "stone", "stone", "stone"],
