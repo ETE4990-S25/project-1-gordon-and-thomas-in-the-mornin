@@ -37,19 +37,31 @@ def get_Angle():
 
 #basic function for moving around the map and finding enemies
 def move_Direction(direction, distance):
-    if direction == "N":
-        postion[0] += distance
-    elif direction == "S":
-        postion[0] -= distance
-    elif direction == "E":
-        postion[1] += distance
-    elif direction == "W":
-        postion[1] -= distance
-    else:
-        print("Invalid direction")
-    random.randint(1,6)
-    if random.randint(1,6) == 1:
-        print("You were attacked by a wild animal")
+    while True:
+        print("\nChoose a direction to walk")
+        print("N) Walk North")
+        print("S) Walk South")
+        print("E) Walk East")
+        print("W) Walk West")
+        print("GH) Go Home")
+
+        choice = input("Select an option (N,S,E,W,GH): ")
+
+        if direction == "N":
+         postion[0] += distance
+        elif direction == "S":
+            postion[0] -= distance
+        elif direction == "E":
+            postion[1] += distance
+        elif direction == "W":
+            postion[1] -= distance
+        elif direction == "GH":
+            go_Home()
+        else:
+            print("Invalid direction")
+        random.randint(1,6)
+        if random.randint(1,6) == 1:
+            print("You were attacked by a wild animal")
         fighting()
     
     
@@ -58,6 +70,17 @@ def go_Home():
     postion[0] = 0
     postion[1] = 0
     print("You are home")
+    print("what would you like to do?")
+    print("1) Explore")
+    print("2) Go back to intro screen")
+    choice = input("Select an option (1-2): ")
+    if choice == "1":
+        move_Direction()
+    elif choice == "2":
+        intro_screen()
+    else:
+        print("Invalid choice")
+
 #finds the distance from the home base for loot based functions
 def get_postion_Radius():
     return math.sqrt(postion[0]**2 + postion[1]**2)
@@ -109,6 +132,7 @@ def intro_screen():
 
         if choice == "1":
             print("\n[Exploring the world...]\n")
+            go_Home()
             # Call your explore function here
         elif choice == "2":
             print("\n[Opening your backpack...]\n")
@@ -133,7 +157,7 @@ def dice_Roll ():
 #uses dice_roll as a fighting mechanica agaisnt enenmy enemy needs to be bested by 1/2,2/3 etc with higher level enemies
 def fighting():
     while True:
-
+        wins_needed
 
         wins = []
 
@@ -164,6 +188,17 @@ def fighting():
         else:
             print(" you lost loser :p ")
             losses.append(1)
+
+#function to determine which enemy to fight based on distance from home
+def which_Enemy_(distance):
+    if distance < 10:
+        return low_level_enemy(distance)
+    elif distance < 20:
+        return mid_level_enemy(distance)
+    else:
+        return high_level_enemy(distance)
+
+
 
 
 #main class for enemies name,level, and wins to beat should be based on distance from home. so the further you are from home the more wins you need to beat the enemy
