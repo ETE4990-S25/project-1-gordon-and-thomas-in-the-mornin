@@ -155,39 +155,72 @@ def dice_Roll ():
     return sum
 
 #uses dice_roll as a fighting mechanica agaisnt enenmy enemy needs to be bested by 1/2,2/3 etc with higher level enemies
-def fighting():
-    while True:
-        wins_needed
+# def fighting():
+#     while True:
+#         wins_needed
 
-        wins = []
+#         wins = []
 
-        losses = []
+#         losses = []
 
-        games_Played = []
+#         games_Played = []
 
-        computer_Guess = dice_Roll()
+#         computer_Guess = dice_Roll()
 
-        print (computer_Guess)
+#         print (computer_Guess)
 
-        user_Guess = int(input ("Enter a guess for the sum of 5 dice if youre within 2 numbers you win"))
+#         user_Guess = int(input ("Enter a guess for the sum of 5 dice if youre within 2 numbers you win"))
 
-        print (computer_Guess)
+#         print (computer_Guess)
 
-        #if computer_Guess - 2 <= user_Guess <=  computer_Guess + 2:
-            #print(f" You won! youre guess was {user_Guess} the total sum was {computer_Guess}")
-        if computer_Guess == user_Guess:
-            print (" wow lucky guess you got it exactly right!")
-            wins.append(1)
-            games_Played.append(1)
+#         #if computer_Guess - 2 <= user_Guess <=  computer_Guess + 2:
+#             #print(f" You won! youre guess was {user_Guess} the total sum was {computer_Guess}")
+#         if computer_Guess == user_Guess:
+#             print (" wow lucky guess you got it exactly right!")
+#             wins.append(1)
+#             games_Played.append(1)
 
-        elif computer_Guess - 2 <= user_Guess <=  computer_Guess + 2:
-            print(f" You won! youre guess was {user_Guess} the total sum was {computer_Guess}")
-            wins.append(1)
-            games_Played.append(1)
+#         elif computer_Guess - 2 <= user_Guess <=  computer_Guess + 2:
+#             print(f" You won! youre guess was {user_Guess} the total sum was {computer_Guess}")
+#             wins.append(1)
+#             games_Played.append(1)
 
+#         else:
+#             print(" you lost loser :p ")
+#             losses.append(1)
+
+#new fighting function that uses classes to determine which enemy to fight and how many wins are needed to beat
+def fighting(which_Enemy_):
+    enemy = which_Enemy_()
+    wins_needed = enemy.wins_to_beat
+    wins = 0
+    
+    print(f"You encountered a {enemy.name} (Level {enemy.level})!")
+    print(f"You need {wins_needed} wins to defeat it.")
+    
+    while wins < wins_needed:
+        computer_roll = dice_Roll()
+        print(f"Enemy rolled: {computer_roll}")
+        
+        try:
+            user_guess = int(input("Enter your guess for the sum of 5 dice: "))
+        except ValueError:
+            print("Invalid input. Enter a number.")
+            continue
+        
+        if computer_roll == user_guess:
+            print("Wow! Lucky guess, you got it exactly right!")
+            wins += 1
+        elif computer_roll - 2 <= user_guess <= computer_roll + 2:
+            print(f"You won this round! Your guess was {user_guess}, total sum was {computer_roll}.")
+            wins += 1
         else:
-            print(" you lost loser :p ")
-            losses.append(1)
+            print("You lost this round!")
+            
+        print(f"Wins: {wins}/{wins_needed}")
+    
+    print(f"You defeated the {enemy.name}!")
+
 
 #function to determine which enemy to fight based on distance from home
 def which_Enemy_(distance):
