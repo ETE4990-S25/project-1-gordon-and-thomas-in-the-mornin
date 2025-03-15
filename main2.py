@@ -23,7 +23,7 @@ def get_postion():
     return postion
 
 radius = math.sqrt(postion[0] * postion[0] + postion[1] * postion[1])
-
+#loot based on angles so this finds the angle you are at so we know what loot to gove
 def get_Angle():
     angle = 0
     if postion[0] == 0:
@@ -35,7 +35,7 @@ def get_Angle():
         angle = math.degrees(math.atan(postion[1]/postion[0]))
     return angle
 
-
+#basic function for moving around the map and finding enemies
 def move_Direction(direction, distance):
     if direction == "N":
         postion[0] += distance
@@ -47,15 +47,23 @@ def move_Direction(direction, distance):
         postion[1] -= distance
     else:
         print("Invalid direction")
-
+    random.randint(1,6)
+    if random.randint(1,6) == 1:
+        print("You were attacked by a wild animal")
+        fighting()
+    
+    
+#takes the player back to the home base
 def go_Home():
     postion[0] = 0
     postion[1] = 0
     print("You are home")
-
+#finds the distance from the home base for loot based functions
 def get_postion_Radius():
     return math.sqrt(postion[0]**2 + postion[1]**2)
 
+
+#searches for loot from falled enemies and/or ground
 def search_Loot():
     angle = get_Angle()
     distance = get_postion_Radius()
@@ -86,7 +94,9 @@ def search_Loot():
         else:
             print("You found nothing")
 
+        ##### Gives item here#########
 
+#intor screen for the game
 def intro_screen():
     while True:
         print("\n--- Welcome to the Adventure Game ---")
@@ -100,7 +110,6 @@ def intro_screen():
         if choice == "1":
             print("\n[Exploring the world...]\n")
             # Call your explore function here
-            fighting()
         elif choice == "2":
             print("\n[Opening your backpack...]\n")
             # Call backpack function
@@ -112,11 +121,7 @@ def intro_screen():
             break  # Exit the loop and save progress
         else:
             print("\nInvalid choice. Please select a number between 1 and 4.")
-
-# Run the intro screen
-
-
-intro_screen() 
+ 
 
 #dice roll for fighting
 def dice_Roll ():
@@ -171,7 +176,8 @@ class enemy:
 
     def __str__(self):
         return f"{self.name} (Level {self.level})"
-
+    
+#low level enemies only need 1 win to beat them
 class low_level_enemy(enemy):
 
     enemy_names = ["Cave Rat", "Wolf", "Wild Boar", "Angry Giant Sloth"]
@@ -180,6 +186,7 @@ class low_level_enemy(enemy):
         self.level = 1
         self.wins_to_beat = 1
     
+#mid level enemies need 3 wins to beat them
 class mid_level_enemy(enemy):
     enemy_names = ["Hyena", "Raptor", "Rival Caveman", "Sabertooth Tiger"]
     def __init__(self,distance):
@@ -187,9 +194,9 @@ class mid_level_enemy(enemy):
         self.level = 1
         self.wins_to_beat = 3
     
-
+#high level enemies need 5 wins to beat them
 class high_level_enemy(enemy):
-    enemy_names = ["Wooly mammoth", "Cave Bear", "Giant Eagle", "Angry Cave Rat"]
+    enemy_names = ["Wooly mammoth", "Cave Bear", "Giant Eagle", "Mega Cave Rat"]
     def __init__(self,distance):
         self.name = random.choice(self.enemy_names)
         self.level = 1
