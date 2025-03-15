@@ -25,6 +25,8 @@ class Backpack:
         self.capacity = 5
         self.load_items()
 
+
+    # loads the items from the user backpack json file
     def load_items(self):
         try:
             with open(self.file_path, 'r') as file:
@@ -34,15 +36,22 @@ class Backpack:
         except FileNotFoundError:
             self.items = []
 
+
+
+
     def add_item(self, item, count):
             
             item_added = False
+
+            # searches the backpack for item to add, if it doesnt exist it will add it to the backpack, read below
             for backpack_item in self.items:
                 print("looking for item")
                 if backpack_item['name'] == item:
                     backpack_item['count'] += count
                     item_added = True
                     return
+                
+            # if the item is not found in the backpack it will error out so the  boolean is in place to catch that error
             if not item_added:
                 print("adding item")
                 self.items.append({
@@ -51,26 +60,41 @@ class Backpack:
                 })
                     
 
+
+
     def remove_item(self, item_name, count):
+
+        # searches through all the items in the palyers back pack
         for backpack_item in self.items:
+
+            # if the item is found it will remove the item from the backpack    
             if backpack_item['name'] == item_name:
-                print(backpack_item)
-                print(backpack_item['name'])
+                # print(backpack_item)
+                # print(backpack_item['name'])
+
+                # copilot made this quickly, it can be simplified 
                 if backpack_item['count'] > count:
                     backpack_item['count'] -= count
                 elif backpack_item['count'] == count:
                     backpack_item['count'] = 0
                 else:
+                    # will never hit this error because the player will not be able to remove more items than they have
                     raise ValueError("Not enough items to remove")
                 return
+            
+        # again never possbile to hit this error because the player will not be able to remove more items than they have to begin with
         raise ValueError("Item not found in backpack")
 
+
+    # gets the item from the backpack 
     def get_item(self, name):
         for item in self.items:
             if item['name'] == name:
                 return item
         raise ValueError(f"Item with name '{name}' not found")
     
+    
+    # pulls item description from the magic Item Manager class
     def get_item_description(self, name):
         iM = ItemManager('items.json')
         try:
@@ -78,6 +102,8 @@ class Backpack:
         except:
             return "Item not found"
        
+
+
     def get_item_count(self, name):
         
         try:
@@ -85,6 +111,10 @@ class Backpack:
             for item in self.items:
                 if item['name'] == name:
                     return item['count']
+                
+        
+                
+        #werid bug that returns NONE if the item is not found, this is a quick fix 
         except:
             return 0
         
