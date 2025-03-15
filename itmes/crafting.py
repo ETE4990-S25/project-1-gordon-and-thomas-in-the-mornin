@@ -41,8 +41,7 @@ def craftable_items(bp):
     print("You can craft the following items:")
     possible_items = []
     for item in crafting_list():
-        
-
+    
         name = item['name']
         item_needed = item['items_needed']
         
@@ -66,11 +65,11 @@ def craftable_items(bp):
             print(bp.get_item_count(needed_item['name']) , " and ", needed_item['count'])
             possible_items.append(name)
     
-    print(possible_items)
+    return(possible_items)
 
     
 
-def craft_item(self,bp,item_name):
+def craft_item(bp,item_name):
     for item in iM.items:
         if item.get_item_name() == item_name:
             for item_needed in item.get_item_items_needed():
@@ -82,6 +81,23 @@ def craft_item(self,bp,item_name):
             bp.add_item(item_name,1)
             print(f"{item_name} crafted")
             return
+        
+def crafting_menu(bp):
+    print("You can craft the following items:")
+    pos_items = craftable_items(bp)
+    
+    print(pos_items)
+    print("Which item would you like to craft?")
+    for i in range(len(pos_items)):
+        print(f"{i+1}) {pos_items[i]}")
+    print("Enter '0' to go back")
+    choice = input()
+    if choice == '0':
+        return
+    else:
+        craft_item(bp,pos_items[int(choice)])
+        bp.save_backpack()
+        return
 
 if __name__ == "__main__":
     bp = Backpack('back.json')
@@ -89,7 +105,13 @@ if __name__ == "__main__":
     # crafting_list()
 
 
-    craftable_items(bp)
+    # craftable_items(bp)
+    crafting_menu(bp)
+
+
+
+
+    # TODO: Clean up the print statments
     
 
 

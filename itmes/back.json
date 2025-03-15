@@ -2,12 +2,15 @@
     "items": [
         {
             "name": "stick",
-            "count": 25
+            "count": 23
         },
-
         {
             "name": "magic stone",
-            "count": 2
+            "count": 1
+        },
+        {
+            "name": "Magic Wand",
+            "count": 1
         }
     ],
     "capacity": 5
