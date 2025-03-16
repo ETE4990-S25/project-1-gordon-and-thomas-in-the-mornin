@@ -24,7 +24,7 @@ class Backpack:
             if backpack_item['name'] == item:
                 backpack_item['count'] += count
                 item_added = True
-                self.save_backpack()
+                self.save_backpack
                 return
         if not item_added:
             self.items.append({'name': item, 'count': count})
@@ -81,6 +81,8 @@ class Backpack:
                     print("Backpack upgraded to a capacity of 7")
             else:
                 print("Not enough rocks to upgrade backpack. You need 5 rocks.")
+        else:
+            print("You already have the max backpack size!!!!")
 
     def save_backpack(self):
         with open(self.file_path, 'w') as file:
@@ -113,14 +115,14 @@ if __name__ == "__main__":
     print(bp.get_item_count("stick"))
 
     
-    bp.upgrade_backpack()
-    bp.add_item("stick", 5)
-    print(bp.toTable())
-    print(bp.toString())
-    bp.upgrade_backpack()
+    # bp.upgrade_backpack()
+    # bp.add_item("stick", 5)
+    # print(bp.toTable())
+    # print(bp.toString())
+    # bp.upgrade_backpack()
     
-    print(bp.toString())
-    bp.reset_backpack()
+    # print(bp.toString())
+    # bp.reset_backpack()
 
 
 
