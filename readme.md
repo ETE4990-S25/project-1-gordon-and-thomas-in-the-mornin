@@ -1,6 +1,6 @@
-# Project 1 - Oooga Booga Farming Simulator
+# Project 1 - Oooga Booga Fighting Simulator
 ## Description
-Here you are the start of civilzation. You have to wander around the lands and look for materials to eventually craft the ultimate weapon to defeat the final boss. Along the way as you craft items you will be able to collect more resources to craft more items. 
+Here you are the protector of your home. You have to wander around the lands and looking for materials and fighting enemies to eventually craft the ultimate weapon to defeat the final boss. Along the way as you craft items you will be able to collect more resources to craft more items. 
 
 ## How to use
 Run the game by running the main method in the Main class. The game will start and you will be able to play.
@@ -50,7 +50,7 @@ python main.py
 - Each item has a get method to call 
 
 ### Crafting
-- Crafting is a finction that cross references two lists to figure out what items the player can craft
+- Crafting is a function that cross references two lists to figure out what items the player can craft
   - The algorithm works by first compiling a list of items and their needed ingredients then checking the players backpack with the list to see what are items are craftable
   
 ### Saving 
