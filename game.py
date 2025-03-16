@@ -112,11 +112,12 @@ def intro_screen(bp):
         print("\n--- Welcome to the Adventure Game ---")
         print("1) Explore")
         print("2) Examine Backpack")
-        print("3) Craft Items")
-        print("4) Exit and Save")
+        print("3) Search Item description")
+        print("4) Craft Items")
+        print(") Exit and Save")
         print("10) HARD RESET BACKPACK")
         
-        choice = input("Select an option (1-4): ")
+        choice = input("Select an option (1-5): ")
 
         if choice == "1":
             print("\n[Exploring the world...]\n")
@@ -124,20 +125,32 @@ def intro_screen(bp):
         elif choice == "2":
             print("\n[Opening your backpack...]\n")
             bp.to_table()
-            intro_screen(bp)
-        elif choice == "3":
+        elif choice == "4":
             print("\n[Crafting items...]\n")
             crafting_menu(bp)
-        elif choice == "4":
+        elif choice == "3":
+            print("\n[Viewing item description...]\n")
+            view_item_description(bp)
+        elif choice == "5":
             bp.save_backpack()
-            print("\n[Game saved. Exiting...]\n")
+            print("\n[Game saved. Exiting...]\n")   
             play = False  # Exit the loop and save progress
+       
         elif choice == "10":
             bp.reset_backpack()
             print("\n[Reseting Backpack]\n")
             
         else:
-            print("\nInvalid choice. Please select a number between 1 and 4.")
+            print("\nInvalid choice. Please select a number between 1 and 5.")
+
+# Function to view item description
+def view_item_description(bp):
+    item_name = input("Enter the name of the item to view its description: ")
+    try:
+        description = bp.get_item_description(item_name)
+        print(f"Description of {item_name}: {description}")
+    except ValueError as e:
+        print(e)
 
 # Dice roll for fighting
 def dice_Roll():

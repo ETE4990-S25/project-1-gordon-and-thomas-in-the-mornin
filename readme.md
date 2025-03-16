@@ -5,11 +5,22 @@ Here you are the start of civilzation. You have to wander around the lands and l
 ## How to use
 Run the game by running the main method in the Main class. The game will start and you will be able to play.
 
+``` python
+python main.py
+```
+
 ## Things that the games uses
-- Class importing 
-- Screen Promt Handling
-- JSON sorting
+- Importing
+- Class 
+  - Polymorphism
+  - Dot methods
+  -  
+- Screen Prompt Handling
+- JSON Manipulation
   - JSON file is used to store the items that can be crafted
+  - JSON is also being used to store backpack items
+- File Saving
+- 
 
 ## Game Logic
 
@@ -26,6 +37,7 @@ Run the game by running the main method in the Main class. The game will start a
 
 ### Items
 - Items are stored in a JSON file
+- An Item Manager has been made to manage the 
 - Items have a name, description, a list of materials needed to craft the item, and a ratity
   - Rarity is used to determine what tier the item is
     - common can be found in the lands
@@ -34,9 +46,13 @@ Run the game by running the main method in the Main class. The game will start a
     - And so on
 - Each item has a get method to call 
 
+### Crafting
+- Crafting is a finction that cross references two lists to figure out what items the player can craft
+  - The algorithm works by first compiling a list of items and their needed ingredients then checking the players backpack with the list to see what are items are craftable
+  
 ### Saving 
 - The game saves the items that you have collected in a JSON file
-- The name of the object is impora
+- The name of the object is important
 
 ## Team Members
 - [Gordon](https://github.com/Gizmofire)
