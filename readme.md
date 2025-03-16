@@ -11,11 +11,14 @@ python main.py
 
 ## Things that the games uses
 - Importing
-- Class 
+- Classes
   - Polymorphism
   - Dot methods
   -  
 - Screen Prompt Handling
+- Loops
+- Lists
+- Dicts
 - JSON Manipulation
   - JSON file is used to store the items that can be crafted
   - JSON is also being used to store backpack items
