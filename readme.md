@@ -26,7 +26,7 @@ python main.py
 - 
 
 ## Game Logic
-
+You travel around the world looking for prehistoric animals to fight and collect loot from to craft better tools. 
 
 
 
