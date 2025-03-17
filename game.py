@@ -107,6 +107,7 @@ def search_Loot(bp):
 
 # Intro screen for the game
 def intro_screen(bp):
+    player = Character()  # Create a character instance and choose gender
     play = True
     while play:
         print("\n--- Welcome to the Adventure Game ---")
@@ -240,4 +241,15 @@ class high_level_enemy(enemy):
         self.level = 1
         self.wins_to_beat = 5
 
+class Character:
+    def __init__(self):
+        self.gender = self.choose_gender()
 
+    def choose_gender(self):
+        while True:
+            gender = input("Choose your gender (male/female): ").lower()
+            if gender in ["male", "female"]:
+                print(f"You have chosen {gender} as your gender.")
+                return gender
+            else:
+                print("Invalid input. Please choose 'male' or 'female'.")
