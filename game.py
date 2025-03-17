@@ -2,6 +2,7 @@ import random
 import math
 from items_and_backpack.crafting import crafting_menu
 from items_and_backpack.backpack import Backpack
+import json
 
 # Create map of a circle with radius of 100
 # Create position at any point from the center of the circle
@@ -251,6 +252,12 @@ class Character:
             gender = input("Choose your gender (male/female): ").lower()
             if gender in ["male", "female"]:
                 print(f"You have chosen {gender} as your gender.")
+                with open("gender.json", "w") as file:
+                    json.dump({"Gender": gender}, file)
                 return gender
             else:
                 print("Invalid input. Please choose 'male' or 'female'.")
+
+        def save_gender_to_file(self, filename="gender.json"):
+            with open(filename, "w") as file:
+                json.dump({"Gender": self.gender}, file)
