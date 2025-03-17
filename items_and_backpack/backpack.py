@@ -48,7 +48,7 @@ class Backpack:
         raise ValueError(f"Item with name '{name}' not found")
 
     def get_item_description(self, name):
-        iM = ItemManager('items.json')
+        iM = ItemManager('.\\items_and_backpack\items.json')
         try:
             return iM.get_item(name).get_item_description()
         except:
