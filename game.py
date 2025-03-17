@@ -114,7 +114,7 @@ def intro_screen(bp):
         print("2) Examine Backpack")
         print("3) Search Item description")
         print("4) Craft Items")
-        print(") Exit and Save")
+        print("5) Exit and Save")
         print("10) HARD RESET BACKPACK")
         
         choice = input("Select an option (1-5): ")
@@ -135,6 +135,7 @@ def intro_screen(bp):
             bp.save_backpack()
             print("\n[Game saved. Exiting...]\n")   
             play = False  # Exit the loop and save progress
+            break
        
         elif choice == "10":
             bp.reset_backpack()
@@ -173,7 +174,7 @@ def fighting(bp):
         computer_roll = dice_Roll()
 
         # Debug
-        print(f"Enemy rolled: {computer_roll}") 
+        # print(f"Enemy rolled: {computer_roll}") 
         
         try:
             print("\n --------------  \n")
