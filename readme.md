@@ -13,8 +13,7 @@ python main.py
 - Importing
 - Classes
   - Polymorphism
-  - Dot methods
-  -  
+  - Dot methods 
 - Screen Prompt Handling
 - Loops
 - Lists
@@ -23,7 +22,6 @@ python main.py
   - JSON file is used to store the items that can be crafted
   - JSON is also being used to store backpack items
 - File Saving
-- 
 
 ## Game Logic
 You travel around the world looking for prehistoric animals to fight and collect loot from to craft better tools. 
@@ -36,7 +34,6 @@ You travel around the world looking for prehistoric animals to fight and collect
   - A limit of 5 items in the beginning
   - Can be upgraded to hold more items
 - Can be converted to a JSON file to save the items that you have collected
-- 
 
 ### Items
 - Items are stored in a JSON file
