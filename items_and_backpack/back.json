@@ -1,0 +1,13 @@
+{
+    "items": [
+        {
+            "name": "rock",
+            "count": 2
+        },
+        {
+            "name": "stone",
+            "count": 1
+        }
+    ],
+    "capacity": 5
+}

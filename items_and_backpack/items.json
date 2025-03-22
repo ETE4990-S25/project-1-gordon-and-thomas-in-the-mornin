@@ -1,0 +1,85 @@
+ 
+[
+    {
+        "name": "stick",
+        "description": "regular stick",
+        "itemsNeeded": ["found wandering the lands"],
+        "rarity": "common"
+    }, 
+
+    {
+        "name": "seed",
+        "description": "regular seed",
+        "itemsNeeded": ["found wandering the lands"],
+        "rarity": "common"
+    }, 
+
+    {
+        "name": "fruit",
+        "description": "regular fruit",
+        "itemsNeeded": ["found wandering the lands"],
+        "rarity": "common"
+    }, 
+
+    {
+        "name": "rock",
+        "description": "regular rock",
+        "itemsNeeded": ["found wandering the lands"],
+        "rarity": "common"
+    }, 
+
+
+
+
+    {
+        "name": "stone",
+        "description": "smooth rock",
+        "itemsNeeded": ["rock", "rock"],
+        "rarity": "uncommon"
+    }, 
+
+
+    {
+        "name": "large stick",
+        "description": "a large stick",
+        "itemsNeeded": ["stick", "stick","stick", "stick" ],
+        "rarity": "rare"
+    }, 
+
+
+    {
+        "name": "stone pickaxe",
+        "description": "regular stone pickaxe",
+        "itemsNeeded": ["stick", "stick", "stone", "stone", "stone"],
+        "rarity": "rare"
+    }, 
+
+    {
+        "name": "stone sword",
+        "description": "regular stone sword",
+        "itemsNeeded": ["stick", "stone", "stone"],
+        "rarity": "rare"
+    },
+
+	{
+		"name": "stone axe",
+		"description": "regular stone axe",
+		"itemsNeeded": ["stick", "stick", "stone", "stone", "stone"],
+		"rarity": "rare"
+	}, 
+
+	{
+		"name": "magic stone",
+		"description": "A magical stone, made by smashing stones together",
+		"itemsNeeded": ["stone", "stone", "stone", "stone", "stone", "stone"],
+		"rarity": "rare"
+	}, 
+
+	{
+		"name": "Magic Wand",
+		"description": "Magical???? wand",
+		"itemsNeeded": ["stick", "stick", "magic stone"],
+		"rarity": "very rare"
+	}
+
+]
