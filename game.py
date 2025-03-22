@@ -15,6 +15,7 @@ import json
 # Create a crafting system
 # Create an inventory system
 # Create a health system
+# EMPTY
 
 map_Radius = 100
 map_Area = 3.14 * map_Radius * map_Radius
