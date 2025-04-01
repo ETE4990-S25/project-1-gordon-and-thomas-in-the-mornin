@@ -96,10 +96,18 @@ def search_Loot(bp):
     low_Loot_number_generator = random.randint(1, 5)
     amount_of_items = random.randint(1, 3)
     if low_Loot_number_generator == 1:
-        (lambda items: print(f"You found {items} {'stick' if items == 1 else 'sticks'}"))(amount_of_items)
+        if (amount_of_items == 1):  
+            print(f"You found a stick")  
+        else:  
+            print(f"You found {amount_of_items} sticks")  
+
         bp.add_item("stick", amount_of_items)
     elif low_Loot_number_generator == 2:
-        (lambda items: print(f"You found {items} {'rock' if items == 1 else 'rocks'}"))(amount_of_items)
+        if (amount_of_items == 1):  
+            print(f"You found a rock")  
+        else:  
+            print(f"You found {amount_of_items} rocks")  
+
         bp.add_item("rock", amount_of_items)
     elif low_Loot_number_generator == 3:
         print("You found nothing")
