@@ -115,14 +115,7 @@ if __name__ == "__main__":
     print(bp.get_item_count("stick"))
 
     
-    # bp.upgrade_backpack()
-    # bp.add_item("stick", 5)
-    # print(bp.toTable())
-    # print(bp.toString())
-    # bp.upgrade_backpack()
     
-    # print(bp.toString())
-    # bp.reset_backpack()
 
 
 
