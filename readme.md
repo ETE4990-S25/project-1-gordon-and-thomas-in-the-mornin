@@ -55,7 +55,7 @@ You travel around the world looking for prehistoric animals to fight and collect
 - The name of the object is important
 
 
-### Peer Review
+### Peer Review Excel
 - [Gordon Peer Review](https://livecsupomona-my.sharepoint.com/:x:/g/personal/glau_cpp_edu/EW3srdV_74tCpg4RKX1kK4ABGmwjuVgIGeRhNWBgQXRqTg?e=40DWWR)
 
 ## Team Members

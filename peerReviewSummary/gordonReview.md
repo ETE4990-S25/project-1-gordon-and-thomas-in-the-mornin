@@ -19,6 +19,8 @@
 - Group [A journey](https://github.com/ETE4990-S25/project-1-a-journey/pull/1/files?diff=unified&w=0)  had code but I code not get it to run. Also contained corrented files so I couldnt open the juypiter notebook to see the history of runnin the code.
 - Best made project was [Galaxy](https://github.com/ETE4990-S25/project-1-team-galaxy/pull/7). They had the most sound code and a working game. Some functions could be condensed down to save space.
 
+- [Gordon Peer Review Excel](https://livecsupomona-my.sharepoint.com/:x:/g/personal/glau_cpp_edu/EW3srdV_74tCpg4RKX1kK4ABGmwjuVgIGeRhNWBgQXRqTg?e=40DWWR)
+
 ### Ratings
 
 ####  Scoring Criteria (1-10)
