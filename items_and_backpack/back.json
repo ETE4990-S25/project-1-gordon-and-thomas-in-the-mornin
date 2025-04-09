@@ -2,11 +2,11 @@
     "items": [
         {
             "name": "rock",
-            "count": 2
+            "count": 0
         },
         {
             "name": "stone",
-            "count": 1
+            "count": 2
         }
     ],
     "capacity": 5

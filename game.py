@@ -1,7 +1,6 @@
 import random
 import math
 from items_and_backpack.crafting import crafting_menu
-from items_and_backpack.backpack import Backpack
 import json
 
 # Create map of a circle with radius of 100
@@ -41,23 +40,24 @@ def get_Angle():
 def move_Direction(bp):
     while True:
         print("\nChoose a direction to walk")
-        print("N) Walk North")
-        print("S) Walk South")
-        print("E) Walk East")
-        print("W) Walk West")
-        print("GH) Go Home")
+        print("You are at position:", position)
+        print("N or 1) Walk North")
+        print("S or 2) Walk South")
+        print("E or 3) Walk East")
+        print("W or 4) Walk West")
+        print("GH or 5) Go Home")
 
         choice = input("Select an option (N,S,E,W,GH): ").lower()
 
-        if choice == "n":
+        if choice == "n" or choice == "1".lower():
             position[0] += 1
-        elif choice == "s":
+        elif choice == "s" or choice == "2".lower():
             position[0] -= 1
-        elif choice == "e":
+        elif choice == "e" or choice == "3".lower():
             position[1] += 1
-        elif choice == "w":
+        elif choice == "w" or choice == "4".lower():
             position[1] -= 1
-        elif choice == "gh":
+        elif choice == "gh" or choice == "5".lower():
             go_Home(bp)
         else:
             print("Invalid direction")
@@ -87,72 +87,62 @@ def get_position_Radius():
     return math.sqrt(position[0]**2 + position[1]**2)
 
 # Searches for loot from fallen enemies and/or ground
-def search_Loot(bp):
-    angle = get_Angle()
-    distance = get_position_Radius()
+def search_loot(bp):  
+    angle = get_Angle()  # Kept but unused  
+    distance = get_position_Radius()  # Kept but unused  
+    loot_number = random.randint(1, 5)  
+    amount = random.randint(1, 3)  
 
-    # TODO: add different tier loot for later, if have time
-
-    low_Loot_number_generator = random.randint(1, 5)
-    amount_of_items = random.randint(1, 3)
-    if low_Loot_number_generator == 1:
-        if (amount_of_items == 1):  
-            print(f"You found a stick")  
-        else:  
-            print(f"You found {amount_of_items} sticks")  
-
-        bp.add_item("stick", amount_of_items)
-    elif low_Loot_number_generator == 2:
-        if (amount_of_items == 1):  
-            print(f"You found a rock")  
-        else:  
-            print(f"You found {amount_of_items} rocks")  
-
-        bp.add_item("rock", amount_of_items)
-    elif low_Loot_number_generator == 3:
+    if loot_number == 1:  
+        print(f"You found {amount} stick{'s' if amount > 1 else ''}")  
+        bp.add_item("stick", amount)  
+    elif loot_number == 2:  
+        print(f"You found {amount} rock{'s' if amount > 1 else ''}")  
+        bp.add_item("rock", amount)  
+    else:  
         print("You found nothing")
-    else:
-        print("You found nothing")
+
+
 
 # Intro screen for the game
+
+
+
 def intro_screen(bp):
     player = Character()  # Create a character instance and choose gender
     play = True
-    while play:
-        print("\n--- Welcome to the Adventure Game ---")
-        print("1) Explore")
-        print("2) Examine Backpack")
-        print("3) Search Item description")
-        print("4) Craft Items")
-        print("5) Exit and Save")
-        print("10) HARD RESET BACKPACK")
-        
-        choice = input("Select an option (1-5): ")
+    options = {  
+        "1": (lambda: go_Home(bp), "[Exploring the world...]"),  
+        "2": (bp.to_table, "[Opening your backpack...]"),  
+        "3": (lambda: view_item_description(bp), "[Viewing item description...]"),  
+        "4": (lambda: crafting_menu(bp), "[Crafting items...]"),  
+        "5": (bp.save_backpack, "[Game saved. Exiting...]"),  
+        "10": (bp.reset_backpack, "[Resetting Backpack]")  
+    }  
+    
 
-        if choice == "1":
-            print("\n[Exploring the world...]\n")
-            go_Home(bp)
-        elif choice == "2":
-            print("\n[Opening your backpack...]\n")
-            bp.to_table()
-        elif choice == "4":
-            print("\n[Crafting items...]\n")
-            crafting_menu(bp)
-        elif choice == "3":
-            print("\n[Viewing item description...]\n")
-            view_item_description(bp)
-        elif choice == "5":
-            bp.save_backpack()
-            print("\n[Game saved. Exiting...]\n")   
-            play = False  # Exit the loop and save progress
-            break
-       
-        elif choice == "10":
-            bp.reset_backpack()
-            print("\n[Reseting Backpack]\n")
-            
-        else:
-            print("\nInvalid choice. Please select a number between 1 and 5.")
+    while play:
+
+        
+        print("\nOptions:")
+        print("1) Explore")  
+        print("2) Examine Backpack")  
+        print("3) Search Item description")  
+        print("4) Craft Items")  
+        print("5) Exit and Save")  
+        print("10) RESET BACKPACK")
+
+        choice = input("Select an option (1-5, 10): ")  
+
+        if choice in options:  
+            action, message = options[choice]  
+            print(f"\n{message}\n")  
+            action()  
+            if choice == "5":  
+                play = False 
+        else:  
+            print("\nInvalid choice. Please select a number between 1 and 5 or 10.")
+
 
 # Function to view item description
 def view_item_description(bp):
@@ -206,7 +196,7 @@ def fighting(bp):
         print(f"Reminder: You need {wins_needed} wins to defeat the {enemy.name}")
     
     print(f"You defeated the {enemy.name}!")
-    search_Loot(bp)
+    search_loot(bp)
 
 # Function to determine which enemy to fight based on distance from home
 def which_Enemy_(distance):
@@ -266,6 +256,6 @@ class Character:
             else:
                 print("Invalid input. Please choose 'male' or 'female'.")
 
-        def save_gender_to_file(self, filename="gender.json"):
-            with open(filename, "w") as file:
-                json.dump({"Gender": self.gender}, file)
+    def save_gender_to_file(self, filename="gender.json"):
+        with open(filename, "w") as file:
+            json.dump({"Gender": self.gender}, file)
