@@ -24,7 +24,7 @@ class Backpack:
             if backpack_item['name'] == item:
                 backpack_item['count'] += count
                 item_added = True
-                self.save_backpack
+                self.save_backpack()
                 return
         if not item_added:
             self.items.append({'name': item, 'count': count})
