@@ -1,5 +1,5 @@
 import unittest
-from backpack import Backpack
+from .backpack import Backpack
 
 class TestBackpack(unittest.TestCase):
 
@@ -62,6 +62,15 @@ class TestBackpack(unittest.TestCase):
         self.backpack.save_backpack()
         new_backpack = Backpack("test_backpack.json")
         self.assertEqual(new_backpack.get_item_count("stick"), 3)
+
+    # testing case if the bp is filled and treis to go over capacity
+    def test_add_item_over_capacity(self):
+        self.backpack.add_item("stick", 5)
+        self.backpack.add_item("seed", 5)
+        self.backpack.add_item("rock", 5)
+        self.backpack.add_item("fruit", 5)
+        self.backpack.add_item("stone", 5)
+        self.assertRaises(ValueError)
 
 
     #  method to run after each to test to reset the backpack state to none

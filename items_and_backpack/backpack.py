@@ -20,6 +20,9 @@ class Backpack:
 
     def add_item(self, item, count):
         item_added = False
+        if count > self.capacity:
+            print(f"You dropped {item} because your backpack is full")
+            raise ValueError("Cannot add more items than backpack capacity")
         for backpack_item in self.items:
             if backpack_item['name'] == item:
                 backpack_item['count'] += count
@@ -48,7 +51,7 @@ class Backpack:
         raise ValueError(f"Item with name '{name}' not found")
 
     def get_item_description(self, name):
-        iM = ItemManager('.\\items_and_backpack\items.json')
+        iM = ItemManager('.\items_and_backpack\items.json')
         try:
             return iM.get_item(name).get_item_description()
         except:
