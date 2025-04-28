@@ -62,31 +62,37 @@ class Backpack:
         except:
             return 0
 
+
+    
     def upgrade_backpack(self):
-        if self.capacity == 5:
-            if self.get_item_count("stick") >= 5:
-                choice = input("Backpack can be upgraded to a capacity of 6. Upgrade? (y/n): ")
+        backpackUpgrade = {
+            5: "stick",
+            6: "rock",
+            8: "magic stone",
+            7: None
+        }
+        
+        if backpackUpgrade[self.capacity] is not None:
+            if self.get_item_count(backpackUpgrade[self.capacity]) >= 5:
+                choice = input(f"Backpack can be upgraded to a capacity of {self.capacity + 1}. Upgrade? (y/n): ")
                 if choice.lower() == "y":
-                    self.capacity = 6
-                    self.remove_item("stick", 5)
-                    print("Backpack upgraded to a capacity of 6")
+                    self.capacity += 1
+                    self.remove_item(backpackUpgrade[self.capacity - 1], 5)
+                    print(f"Backpack upgraded to a capacity of {self.capacity}")
+                else:
+                    print("Backpack upgrade cancelled.")
             else:
-                print("Not enough sticks to upgrade backpack. You need 5 sticks.")
-        elif self.capacity == 6:
-            if self.get_item_count("rock") >= 5:
-                choice = input("Backpack can be upgraded to a capacity of 7. Upgrade? (y/n): ")
-                if choice.lower() == "y":
-                    self.capacity = 7
-                    self.remove_item("rock", 5)
-                    print("Backpack upgraded to a capacity of 7")
-            else:
-                print("Not enough rocks to upgrade backpack. You need 5 rocks.")
+                print(f"Not enough {backpackUpgrade[self.capacity]} to upgrade backpack. You need 5 {backpackUpgrade[self.capacity]}s.")
         else:
             print("You already have the max backpack size!!!!")
 
     def save_backpack(self):
-        with open(self.file_path, 'w') as file:
-            json.dump({'items': self.items, 'capacity': self.capacity}, file, indent=4)
+        try:
+            with open(self.file_path, 'w') as file:
+                json.dump({'items': self.items, 'capacity': self.capacity}, file, indent=4)
+        except:
+            # file should be overwritten no matter what, but just in case of an edge case
+            print("Error saving backpack. Please check the file path and permissions.")
 
     def reset_backpack(self):
         self.items = []
