@@ -1,0 +1,122 @@
+[
+
+    {
+        "name": "simple shovel",
+        "description": "A basic shovel made from wood and stone.",
+        "itemsNeeded": ["stick", "stone"],
+        "rarity": "common"
+    },
+    {
+        "name": "reinforced shovel",
+        "description": "A sturdier shovel that lasts longer.",
+        "itemsNeeded": ["stick", "stick", "stick", "stone", "stone", "stone"],
+        "rarity": "uncommon"
+    },
+    {
+        "name": "earthshaper shovel",
+        "description": "A mystical shovel that digs effortlessly.",
+        "itemsNeeded": ["stick", "stick", "stick", "stick", "stick", "stone", "stone", "stone", "stone", "stone", "magic dust"],
+        "rarity": "rare"
+    },
+
+    {
+        "name": "simple hoe",
+        "description": "A crude tool for tilling soil.",
+        "itemsNeeded": ["stick", "stone"],
+        "rarity": "common"
+    },
+    {
+        "name": "sturdy hoe",
+        "description": "A stronger hoe for farming.",
+        "itemsNeeded": ["stick", "stick", "stick", "stone", "stone", "stone"],
+        "rarity": "uncommon"
+    },
+    {
+        "name": "earthbinder hoe",
+        "description": "A hoe infused with nature’s magic, making crops grow faster.",
+        "itemsNeeded": ["stick", "stick", "stick", "stick", "stick", "stone", "stone", "stone", "stone", "stone", "magic dust"],
+        "rarity": "rare"
+    },
+
+    {
+        "name": "wooden bucket",
+        "description": "A simple bucket for carrying water.",
+        "itemsNeeded": ["wood", "vine"],
+        "rarity": "common"
+    },
+    {
+        "name": "strong wooden bucket",
+        "description": "A more durable bucket that holds more water.",
+        "itemsNeeded": ["wood", "wood", "wood", "vine", "vine", "vine"],
+        "rarity": "uncommon"
+    },
+    {
+        "name": "spirit carrier bucket",
+        "description": "A magical bucket that never spills and blesses crops.",
+        "itemsNeeded": ["wood", "wood", "wood", "wood", "wood", "vine", "vine", "vine", "vine", "vine", "magic dust"],
+        "rarity": "rare"
+    },
+
+    {
+        "name": "basic fertilizer",
+        "description": "Simple organic material to enrich soil.",
+        "itemsNeeded": ["ashes", "compost"],
+        "rarity": "common"
+    },
+    {
+        "name": "enhanced fertilizer",
+        "description": "A stronger mix that helps crops grow faster.",
+        "itemsNeeded": ["ashes", "ashes", "ashes", "compost", "compost", "compost"],
+        "rarity": "uncommon"
+    },
+    {
+        "name": "blessed fertilizer",
+        "description": "A sacred blend that supercharges plant growth.",
+        "itemsNeeded": ["ashes", "ashes", "ashes", "ashes", "ashes", "compost", "compost", "compost", "compost", "compost", "magic dust"],
+        "rarity": "rare"
+    },
+
+    {
+        "name": "stone sickle",
+        "description": "A simple tool for harvesting crops.",
+        "itemsNeeded": ["bone", "vine"],
+        "rarity": "common"
+    },
+    {
+        "name": "bone sickle",
+        "description": "A sharper sickle made with more materials.",
+        "itemsNeeded": ["bone", "bone", "bone", "vine", "vine", "vine"],
+        "rarity": "uncommon"
+    },
+    {
+        "name": "moonlight sickle",
+        "description": "A mystical sickle that glows under the moon, increasing yield.",
+        "itemsNeeded": ["bone", "bone", "bone", "bone", "bone", "vine", "vine", "vine", "vine", "vine", "magic dust"],
+        "rarity": "rare"
+    },
+
+    {
+        "name": "primitive pickaxe",
+        "description": "A simple pickaxe for breaking rocks.",
+        "itemsNeeded": ["stick", "stone"],
+        "rarity": "common"
+    },
+    {
+        "name": "reinforced pickaxe",
+        "description": "A more durable pickaxe that breaks rocks faster.",
+        "itemsNeeded": ["stick", "stick", "stick", "stone", "stone", "stone"],
+        "rarity": "uncommon"
+    },
+    {
+        "name": "earthsplitter pickaxe",
+        "description": "A magical pickaxe that cracks open stones with ease.",
+        "itemsNeeded": ["stick", "stick", "stick", "stick", "stick", "stone", "stone", "stone", "stone", "stone", "magic dust"],
+        "rarity": "rare"
+    },
+    {
+        "name": "rock-on-a-stick",
+        "description": "It's literally just a rock tied to a stick. Do whatever you want with it.",
+        "itemsNeeded": ["stick", "rock", "vine"],
+        "rarity": "common"
+    }
+]
