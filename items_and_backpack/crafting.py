@@ -31,6 +31,40 @@ def crafting_list():
 
     return possible_items
 
+# refactoring uses different code but the next commented function works
+
+# def craftable_items(bp):
+#     """
+#     Determines which items can be crafted based on the items in the backpack.
+
+#     Args:
+#         bp (Backpack): The player's backpack.
+
+#     Returns:
+#         list: A list of craftable item names.
+#     """
+#     # possible_items = []
+#     # for item in crafting_list():
+#     #     name = item['name']
+#     #     items_needed = item['items_needed']
+#     #     can_craft = True
+
+#     #     for needed_item in items_needed:
+#     #         try:
+#     #             if bp.get_item_count(needed_item['name']) < needed_item['count']:
+#     #                 can_craft = False
+#     #                 break
+#     #         except TypeError:
+#     #             can_craft = False
+#     #             break
+
+#     #     if can_craft:
+#     #         possible_items.append(name)
+
+#     # return possible_items
+
+
+#refactored code doesnt seem to break anything but is different from the original
 def craftable_items(bp):
     """
     Determines which items can be crafted based on the items in the backpack.
@@ -43,22 +77,8 @@ def craftable_items(bp):
     """
     possible_items = []
     for item in crafting_list():
-        name = item['name']
-        items_needed = item['items_needed']
-        can_craft = True
-
-        for needed_item in items_needed:
-            try:
-                if bp.get_item_count(needed_item['name']) < needed_item['count']:
-                    can_craft = False
-                    break
-            except TypeError:
-                can_craft = False
-                break
-
-        if can_craft:
-            possible_items.append(name)
-
+        if all(bp.get_item_count(n['name']) >= n['count'] for n in item['items_needed']):
+            possible_items.append(item['name'])
     return possible_items
 
 def craft_item(bp, item_name):
