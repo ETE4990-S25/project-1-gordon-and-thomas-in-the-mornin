@@ -110,13 +110,20 @@ def crafting_menu(bp):
     """
     print("You can craft the following items:")
     pos_items = craftable_items(bp)
-    
+    temp = [0]
     for i, item in enumerate(pos_items, start=1):
+        temp.append(i)
         print(f"{i}) {item}")
     print("Enter '0' to go back")
     
+    
     choice = input()
+    if (int(choice) not in temp):
+        print("Invalid choice. Please try again.\n")
+        return
+
     if choice == '0':
+        print("Returning to menu...\n")
         return
     else:
         craft_item(bp, pos_items[int(choice) - 1])
